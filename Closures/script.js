@@ -1,0 +1,1 @@
+//  definition: A closure is the combination of a function bundled together (enclosed) with reference to its surrounding state(the lexical environment).
