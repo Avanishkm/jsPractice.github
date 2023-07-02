@@ -111,6 +111,50 @@
 
 // set interval and settimeout they are subsciption or take space
 
+
+// object
+// call apply bind,
+// promises
+// setInterval
+
+/*
+    call Apply Bind
+
+*/
+
+// const obj1 = {
+//     name: "akash"
+// }
+
+// const obj2 = {
+//     name: "avanish",
+//     foo: function(a,b,c,d){
+
+//         console.log(this.name, a,b,c,d);
+//     }
+// }
+
+// obj2.foo.call(obj1, 10,20,30,40); // javascript people
+
+// obj2.foo.apply(obj1, [10,20,30,40]);
+
+// const fooCopy = obj2.foo.bind(obj1, 10,20,30,40) // !call site
+// fooCopy();
+
+
+// Function.prototype.myCall = function(context, ...args){ // rest operator
+//     const func = this;
+//     const copyContext = {...context}
+//     copyContext.fnName = func;
+//     copyContext.fnName(...args);
+// }
+
+// obj2.foo.myCall(obj1, 10,20,30,40)
+
+
+
+
+
 // output of the question
 
 // for(var i=0; i<8; i++){
@@ -211,11 +255,47 @@
 
 // -----------
 
-let obj = {
-    a: 1,
-    b: 2,
-    c: 3
-   };
+// let obj = {
+//     a: 1,
+//     b: 2,
+//     c: 3
+//    };
    
-   let keys = Object.keys(obj);
-   console.log(keys);
+//    let keys = Object.keys(obj);
+//    console.log(keys);
+
+
+//-----------
+
+obj2.foo.call(obj1, 10,11,12,13)
+
+Function.prototype.myCall = function(context, ...args){
+    const func = this;
+
+    const copyContext = {...context} //
+    copyContext.fnName = func
+
+    copyContext.fnName(...args)
+}
+
+obj2.foo.myCall(obj1, 10, 11, 12, 13, "mycall");
+
+// my apply
+
+obj2.foo.apply(obj1, [10,11,12,13])
+obj1{
+    
+}
+
+Function.prototype.myApply = function(context, args){
+    const func = this;
+    let context = arguments[0];
+    let args = arguments[1];
+
+    const copyContext = {...context} //
+    copyContext.fnName = func
+
+    copyContext.fnName(...args)
+}
+
+obj2.foo.myApply(obj1, 10, 11, 12, 13, "myApply");
